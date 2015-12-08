@@ -1,0 +1,9 @@
+*.opensdf
+*.sdf
+*.lib
+*.pdb
+*.exp
+*.aps
+ipch
+temp
+bin\Debug
