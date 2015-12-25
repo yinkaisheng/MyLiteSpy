@@ -226,7 +226,11 @@ LRESULT CMySpyDlg::OnNotifySetFocus(WPARAM wParam, LPARAM lParam)
 
 CString CMySpyDlg::GetMessageString(UINT nMsg)
 {
+#ifdef _UNICODE
     CString cstrMsg = GetMsgStringW(nMsg);
+#else
+    CString cstrMsg = GetMsgStringA(nMsg);
+#endif
     if (cstrMsg.GetLength() == 0)
     {
         if (nMsg > WM_USER)
