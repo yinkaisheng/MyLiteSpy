@@ -45,6 +45,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 
     void OutputString(const WCHAR* pszFormat, ...);
+    CString GetMessageString(UINT nMsg);
 
 private:
     bool m_bCBTHooked;

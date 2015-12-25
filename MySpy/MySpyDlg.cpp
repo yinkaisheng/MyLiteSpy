@@ -224,13 +224,32 @@ LRESULT CMySpyDlg::OnNotifySetFocus(WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
+CString CMySpyDlg::GetMessageString(UINT nMsg)
+{
+    CString cstrMsg = GetMsgStringW(nMsg);
+    if (cstrMsg.GetLength() == 0)
+    {
+        if (nMsg > WM_USER)
+        {
+            cstrMsg.Format(TEXT("WM_USER+%d"), nMsg - WM_USER);
+        }
+        else
+        {
+            cstrMsg = TEXT("WM_????");
+        }
+    }
+
+    return cstrMsg;
+}
+
+
 LRESULT CMySpyDlg::OnNotifyCallWndProc(WPARAM wParam, LPARAM lParam)
 {
     HWND hWnd = (HWND)wParam;
     UINT nMsg = (UINT)lParam;
     TCHAR szClassName[MAX_PATH] = {0};
     GetClassName(hWnd, szClassName, MAX_PATH);
-    OutputString(TEXT("S hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMsgStringW(nMsg), nMsg, szClassName);
+    OutputString(TEXT("S hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMessageString(nMsg), nMsg, szClassName);
 
     return 0;
 }
@@ -241,7 +260,7 @@ LRESULT CMySpyDlg::OnNotifyCallWndProcRet(WPARAM wParam, LPARAM lParam)
     UINT nMsg = (UINT)lParam;
     TCHAR szClassName[MAX_PATH] = {0};
     GetClassName(hWnd, szClassName, MAX_PATH);
-    OutputString(TEXT("R hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMsgStringW(nMsg), nMsg, szClassName);
+    OutputString(TEXT("R hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMessageString(nMsg), nMsg, szClassName);
 
     if (WM_NCDESTROY == nMsg)
     {
@@ -257,7 +276,7 @@ LRESULT CMySpyDlg::OnNotifyGetMessage(WPARAM wParam, LPARAM lParam)
     UINT nMsg = (UINT)lParam;
     TCHAR szClassName[MAX_PATH] = {0};
     GetClassName(hWnd, szClassName, MAX_PATH);
-    OutputString(TEXT("P hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMsgStringW(nMsg), nMsg, szClassName);
+    OutputString(TEXT("P hWnd: 0x%X, msg: %s(%d), ClassName: %s\r\n"), hWnd, GetMessageString(nMsg), nMsg, szClassName);
 
     return 0;
 }

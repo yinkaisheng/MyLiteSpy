@@ -1600,7 +1600,7 @@ DLL_EXPORT const char* GetMsgStringA(UINT uMsg)
         return g_mapMsgStr[uMsg];
     }
 
-    return "WM_???";
+    return "";
 }
 
 DLL_EXPORT const WCHAR* GetMsgStringW(UINT uMsg)
@@ -2793,7 +2793,7 @@ DLL_EXPORT const WCHAR* GetMsgStringW(UINT uMsg)
         return g_mapMsgStr[uMsg];
     }
 
-    return L"WM_???";
+    return L"";
 }
 
 #ifdef __cplusplus
