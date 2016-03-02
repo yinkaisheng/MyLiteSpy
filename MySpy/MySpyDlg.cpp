@@ -209,7 +209,9 @@ LRESULT CMySpyDlg::OnNotifyActivate(WPARAM wParam, LPARAM lParam)
     HWND hActivateWnd = (HWND)wParam;
     TCHAR szClassName[MAX_PATH] = {0};
     GetClassName(hActivateWnd, szClassName, MAX_PATH);
-    OutputString(TEXT("Activate hWnd: 0x%X, ClassName: %s\n"), hActivateWnd, szClassName);
+    TCHAR szWndName[MAX_PATH] = {0};
+    ::GetWindowText(hActivateWnd, szWndName, MAX_PATH);
+    OutputString(TEXT("Activate hWnd: 0x%X, ClassName: %s, WindowText: %s\n"), hActivateWnd, szClassName, szWndName);
 
     return 0;
 }
@@ -219,7 +221,9 @@ LRESULT CMySpyDlg::OnNotifySetFocus(WPARAM wParam, LPARAM lParam)
     HWND hFocusWnd = (HWND)wParam;
     TCHAR szClassName[MAX_PATH] = {0};
     GetClassName(hFocusWnd, szClassName, MAX_PATH);
-    OutputString(TEXT("Focus hWnd: 0x%X, ClassName: %s\n"), hFocusWnd, szClassName);
+    TCHAR szWndName[MAX_PATH] = {0};
+    ::GetWindowText(hFocusWnd, szWndName, MAX_PATH);
+    OutputString(TEXT("Focus hWnd: 0x%X, ClassName: %s, WindowText: %s\n"), hFocusWnd, szClassName, szWndName);
 
     return 0;
 }

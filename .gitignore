@@ -4,6 +4,7 @@
 *.pdb
 *.exp
 *.aps
+*.suo
 ipch
 temp
 bin\Debug
