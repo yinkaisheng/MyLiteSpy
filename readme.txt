@@ -5,6 +5,7 @@ By hooking WH_CALLWNDPROC, WH_CALLWNDPROCRET and WH_GETMESSAGE, we can capture o
 64 bit MyLiteSpy can only capture 64 bit process's window.
 
 First input a valid window handle and then click InstallSpy.
+
 ScreenShot
 ![ScreenShot](images/screenshot.png)
 
