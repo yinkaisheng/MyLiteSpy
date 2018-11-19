@@ -6,7 +6,7 @@ By hooking WH_CALLWNDPROC, WH_CALLWNDPROCRET and WH_GETMESSAGE, we can capture o
 
 First input a valid window handle and then click InstallSpy.
 ScreenShot
-![ScreenShot](screenshot.png)
+![ScreenShot](./screenshot.png)
 
 Remarks(copy from https://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx)
 
