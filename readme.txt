@@ -4,6 +4,10 @@ By hooking WH_CALLWNDPROC, WH_CALLWNDPROCRET and WH_GETMESSAGE, we can capture o
 32 bit MyLiteSpy can only capture 32 bit process's window.
 64 bit MyLiteSpy can only capture 64 bit process's window.
 
+First input a valid window handle and then click InstallSpy.
+ScreenShot
+![ScreenShot](screenshot.png)
+
 Remarks(copy from https://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx)
 
 SetWindowsHookEx can be used to inject a DLL into another process. A 32-bit DLL cannot be injected into a 64-bit process, and a 64-bit DLL cannot be injected into a 32-bit process. If an application requires the use of hooks in other processes, it is required that a 32-bit application call SetWindowsHookEx to inject a 32-bit DLL into 32-bit processes, and a 64-bit application call SetWindowsHookEx to inject a 64-bit DLL into 64-bit processes. The 32-bit and 64-bit DLLs must have different names.
