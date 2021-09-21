@@ -5,6 +5,8 @@
 *.exp
 *.aps
 *.suo
+*.user
 ipch
 temp
-bin\Debug
+bin/Debug
+.vs
