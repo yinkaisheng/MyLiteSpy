@@ -188,7 +188,7 @@ void CMySpyDlg::OnBnClickedButtonInstallCBT()
         m_bCBTHooked = InstallCBTHook(m_hWnd);
         if (m_bCBTHooked)
         {
-            OutputString(TEXT("CBTHook installed\n"));
+            OutputString(TEXT("CBTHook installed\r\n"));
         }
     }
 }
@@ -200,7 +200,7 @@ void CMySpyDlg::OnBnClickedButtonUninstallCBT()
     {
         UninstallCBTHook();
         m_bCBTHooked = false;
-        OutputString(TEXT("CBTHook uninstalled\n"));
+        OutputString(TEXT("CBTHook uninstalled\r\n"));
     }
 }
 
@@ -211,7 +211,7 @@ LRESULT CMySpyDlg::OnNotifyActivate(WPARAM wParam, LPARAM lParam)
     GetClassName(hActivateWnd, szClassName, MAX_PATH);
     TCHAR szWndName[MAX_PATH] = {0};
     ::GetWindowText(hActivateWnd, szWndName, MAX_PATH);
-    OutputString(TEXT("Activate hWnd: 0x%X, ClassName: %s, WindowText: %s\n"), hActivateWnd, szClassName, szWndName);
+    OutputString(TEXT("Activate hWnd: 0x%X, ClassName: %s, WindowText: %s\r\n"), hActivateWnd, szClassName, szWndName);
 
     return 0;
 }
@@ -223,7 +223,7 @@ LRESULT CMySpyDlg::OnNotifySetFocus(WPARAM wParam, LPARAM lParam)
     GetClassName(hFocusWnd, szClassName, MAX_PATH);
     TCHAR szWndName[MAX_PATH] = {0};
     ::GetWindowText(hFocusWnd, szWndName, MAX_PATH);
-    OutputString(TEXT("Focus hWnd: 0x%X, ClassName: %s, WindowText: %s\n"), hFocusWnd, szClassName, szWndName);
+    OutputString(TEXT("Focus hWnd: 0x%X, ClassName: %s, WindowText: %s\r\n"), hFocusWnd, szClassName, szWndName);
 
     return 0;
 }
@@ -335,7 +335,7 @@ void CMySpyDlg::OnBnClickedButtonInstallSpy()
 
     if (GetCurrentThreadId() == GetWindowThreadProcessId(hWnd, NULL))
     {
-        MessageBox(TEXT("Capturing MySpy's window is not allowed.\nPlease input another window."), TEXT("No!!!"), MB_OK|MB_ICONWARNING);
+        MessageBox(TEXT("Capturing MySpy's window is not allowed.\r\nPlease input another window."), TEXT("No!!!"), MB_OK|MB_ICONWARNING);
         m_editWnd.SetFocus();
         m_editWnd.SetSel(0, -1);
         return;
@@ -344,31 +344,31 @@ void CMySpyDlg::OnBnClickedButtonInstallSpy()
     m_bCallWndProcHooked = InstallCallWndProcHook(m_hWnd, hWnd);
     if (m_bCallWndProcHooked)
     {
-        OutputString(TEXT("Hook CallWndProc succeed\n"));
+        OutputString(TEXT("Hook CallWndProc succeed\r\n"));
     }
     else
     {
-        OutputString(TEXT("Hook CallWndProc failed\n"));
+        OutputString(TEXT("Hook CallWndProc failed\r\n"));
     }
 
     m_bCallWndProcRetHooked = InstallCallWndProcRetHook(m_hWnd, hWnd);
     if (m_bCallWndProcRetHooked)
     {
-        OutputString(TEXT("Hook CallWndProcRet succeed\n"));
+        OutputString(TEXT("Hook CallWndProcRet succeed\r\n"));
     }
     else
     {
-        OutputString(TEXT("Hook CallWndProcRet failed\n"));
+        OutputString(TEXT("Hook CallWndProcRet failed\r\n"));
     }
 
     m_bGetMessageHooked = InstallGetMessageHook(m_hWnd, hWnd);
     if (m_bGetMessageHooked)
     {
-        OutputString(TEXT("Hook GetMessage succeed\n"));
+        OutputString(TEXT("Hook GetMessage succeed\r\n"));
     }
     else
     {
-        OutputString(TEXT("Hook GetMessage failed\n"));
+        OutputString(TEXT("Hook GetMessage failed\r\n"));
     }
 }
 
@@ -379,21 +379,21 @@ void CMySpyDlg::OnBnClickedButtonUninstallSpy()
     {
         UninstallCallWndProcHook();
         m_bCallWndProcHooked = false;
-        OutputString(TEXT("Unhook CallWndProc\n"));
+        OutputString(TEXT("Unhook CallWndProc\r\n"));
     }
 
     if (m_bCallWndProcRetHooked)
     {
         UninstallCallWndProcRetHook();
         m_bCallWndProcRetHooked = false;
-        OutputString(TEXT("Unhook CallWndProcRet\n"));
+        OutputString(TEXT("Unhook CallWndProcRet\r\n"));
     }
 
     if (m_bGetMessageHooked)
     {
         UninstallGetMessageHook();
         m_bGetMessageHooked = false;
-        OutputString(TEXT("Unhook GetMessage\n"));
+        OutputString(TEXT("Unhook GetMessage\r\n"));
     }
 }
 
