@@ -228,7 +228,7 @@ DLL_EXPORT bool UninstallCBTHook()
 }
 
 //note:
-//CallWndProc will be executed in the process whick myhook.dll injected, not the MySpy process
+//CallWndProc will be executed in the process which myhook.dll injected, not the MySpy process
 static LRESULT CALLBACK CallWndProc(int code, WPARAM wParam, LPARAM lParam)
 {
     if (code == HC_ACTION) 
@@ -287,7 +287,7 @@ DLL_EXPORT bool UninstallCallWndProcHook()
 }
 
 //note:
-//CallWndProc will be executed in the process whick myhook.dll injected, not the MySpy process
+//CallWndProc will be executed in the process which myhook.dll injected, not the MySpy process
 static LRESULT CALLBACK CallWndProcRet(int code, WPARAM wParam, LPARAM lParam)
 {
     if (code == HC_ACTION) 
@@ -352,7 +352,7 @@ DLL_EXPORT bool UninstallCallWndProcRetHook()
 }
 
 //note:
-//CallWndProc will be executed in the process whick myhook.dll injected, not the MySpy process
+//CallWndProc will be executed in the process which myhook.dll injected, not the MySpy process
 static LRESULT CALLBACK GetMessageProc(int code, WPARAM wParam, LPARAM lParam)
 {
     if (code == HC_ACTION) 
